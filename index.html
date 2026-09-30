@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaptopHub PH | Laptop Rental</title>
+  <meta name="description" content="LaptopHub PH hourly and overnight laptop reservation system.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">LH</div>
+      <div><strong>Laptop<span>Hub</span></strong><small>RENT • STUDY • SUCCEED</small></div>
+    </div>
+    <a class="call" href="https://www.facebook.com/profile.php?id=61593571929329" target="_blank" rel="noopener">Facebook</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LAPTOP RENTAL SERVICE</p>
+        <h1>Your Academic Partner,<br><span>Anytime, Anywhere.</span></h1>
+        <p>Reserve a laptop by the hour from <b>8:00 AM to 5:00 PM</b>, or check overnight take-home availability from <b>5:00 PM to 8:00 AM</b>.</p>
+        <div class="hero-actions">
+          <a href="#reserve" class="btn primary">Reserve a Laptop</a>
+          <a href="#availability" class="btn ghost">Check Availability</a>
+        </div>
+      </div>
+      <img src="assets/laptophub-banner.jpg" alt="LaptopHub PH banner" class="hero-img">
+    </section>
+
+    <section class="info-grid">
+      <div><b>₱50</b><span>per hour</span></div>
+      <div><b>10</b><span>laptops available</span></div>
+      <div><b>8 AM–5 PM</b><span>hourly rental</span></div>
+      <div><b>5 PM–8 AM</b><span>overnight rental</span></div>
+    </section>
+
+    <section id="availability" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LIVE DEMO</p>
+          <h2>Laptop Availability</h2>
+        </div>
+        <span class="demo-pill">Saved on this browser</span>
+      </div>
+      <div class="availability-note">
+        Choose a date and rental type. This starter version stores reservations in your browser so you can test the system immediately.
+      </div>
+      <div class="controls">
+        <label>Date <input id="availabilityDate" type="date"></label>
+        <label>Type
+          <select id="availabilityType">
+            <option value="hourly">Operating hours • 8 AM–5 PM</option>
+            <option value="overnight">Take-home / multi-day rental</option>
+          </select>
+        </label>
+      </div>
+      <div id="laptopGrid" class="laptop-grid"></div>
+    </section>
+
+    <section id="reserve" class="section reserve-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">BOOKING</p>
+          <h2>Reserve Your Laptop</h2>
+        </div>
+      </div>
+
+      <form id="reservationForm">
+        <div class="form-grid">
+          <label>Full name
+            <input id="name" required placeholder="Juan Dela Cruz">
+          </label>
+          <label>Mobile number
+            <input id="phone" required inputmode="tel" placeholder="09XXXXXXXXX">
+          </label>
+          <label>Rental date
+            <input id="date" type="date" required>
+          </label>
+          <label>Start time
+            <select id="startTime"></select>
+          </label>
+          <label>Rental duration
+            <input id="hours" type="number" min="1" max="720" value="1" required>
+          </label>
+          <label>Laptop
+            <select id="laptop" required></select>
+          </label>
+          <label>Payment method
+            <select id="payment" required>
+              <option>Cash</option>
+              <option>GCash</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="notice">
+          <b>Take-home requirement:</b> customers must be <b>18 years old or above</b>, leave a <b>valid ID</b> with LaptopHub during the rental, and sign the rental contract. The contract states that the renter is responsible for damage, loss, or other violations involving the rented laptop. The same <b>₱50/hour</b> rate applies to all rental durations.
+        </div>
+
+        <div class="summary">
+          <div><span>Rental period</span><strong id="summaryPeriod">—</strong></div>
+          <div><span>Total</span><strong id="summaryTotal">₱0</strong></div>
+        </div>
+
+        <label class="check"><input id="ageCheck" type="checkbox"> I confirm that I am 18 years old or above, will leave a valid ID, and will sign the rental contract. I understand that I am responsible for damage or loss while the laptop is under my rental.</label>
+
+        <button class="btn primary submit" type="submit">Submit Reservation</button>
+        <p id="formMessage" class="form-message"></p>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61593571929329" target="_blank" rel="noopener">Questions or concerns? Message us on Facebook →</a>
+      </form>
+    </section>
+
+    <section class="section why">
+      <div class="poster-wrap">
+        <img src="assets/laptophub-poster.jpg" alt="LaptopHub PH promotional poster">
+      </div>
+      <div>
+        <p class="eyebrow">LAPTOPHUB PH</p>
+        <h2>Simple booking for students and academic needs.</h2>
+        <ul>
+          <li>Reliable and well-maintained laptops</li>
+          <li>Flexible hourly rental</li>
+          <li>24-hour and multi-day rentals</li>
+          <li>Cash or GCash payment</li>
+          <li>Located at Melvi Building, Jose Abad Santos Avenue, City of San Fernando, Pampanga</li>
+        </ul>
+        <a class="btn ghost" href="https://m.me/LaptopHubPH" target="_blank" rel="noopener">Contact LaptopHub PH</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <b>LaptopHub PH</b> • Rent • Study • Succeed<br>
+    Melvi Building, Jose Abad Santos Avenue, City of San Fernando, Pampanga • 09628637697
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
