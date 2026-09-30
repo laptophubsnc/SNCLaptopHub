@@ -6,7 +6,9 @@ Plain HTML/CSS/JavaScript starter for LaptopHub PH.
 
 - Operating hours: **8:00 AM–5:00 PM**
 - Rental duration: **1 hour to 5 days maximum (120 hours)**
-- All rentals: **₱50/hour**
+- Standard rate: **₱50/hour**
+- **24-hour rental promo: ₱1,000 total** (₱200 discount from the regular ₱1,200)
+- The 24-hour promo applies when the selected duration is exactly 24 hours.
 - After reaching 5 days, the customer must **renew** the rental if the laptop is still available.
 - 10 laptops
 - Customers can rent for 24 hours, several days, or shorter periods.

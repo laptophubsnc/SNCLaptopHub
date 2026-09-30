@@ -1,5 +1,6 @@
 const KEY="laptophub_reservations_v2";
 const RATE=50;
+const DAILY_24H_RATE=1000;
 const laptops=Array.from({length:10},(_,i)=>`Laptop ${String(i+1).padStart(2,"0")}`);
 const $=id=>document.getElementById(id);
 const today=new Date().toISOString().slice(0,10);
@@ -65,9 +66,9 @@ function fillLaptopChoices(){
 }
 function updateForm(){
   const {date,start,hours,end}=getWindow();
-  const total=hours*RATE;
-  $("summaryPeriod").textContent=`${date} ${formatTime(start)} → ${endDateLabel(date,start,hours)}`;
-  $("summaryTotal").textContent=`₱${total.toLocaleString()}`;
+  const total=hours===24?DAILY_24H_RATE:hours*RATE;
+  $("summaryPeriod").textContent=`${date} ${formatTime(start)} → ${endDateLabel(date,start,hours)} (${hours} hour${hours===1?"":"s"})`;
+  $("summaryTotal").textContent=`₱${total.toLocaleString()}${hours===24?" (₱200 discount)":""}`;
   fillLaptopChoices();
 }
 function refresh(){renderAvailability();updateForm()}
@@ -89,11 +90,11 @@ $("reservationForm").addEventListener("submit",e=>{
   const reservations=getReservations();
   reservations.push({
     id:Date.now(),name,phone,date,laptop,payment:$("payment").value,
-    startMin:start,endMin:end,hours,total:hours*RATE,
+    startMin:start,endMin:end,hours,total:hours===24?DAILY_24H_RATE:hours*RATE,
     createdAt:new Date().toISOString()
   });
   saveReservations(reservations);
-  $("formMessage").innerHTML=`Reservation saved for <b>${laptop}</b>. Total: <b>₱${(hours*RATE).toLocaleString()}</b>. Please message our Facebook page or call 09628637697 to confirm.`;
+  $("formMessage").innerHTML=`Reservation saved for <b>${laptop}</b>. Total: <b>₱${(hours===24?DAILY_24H_RATE:hours*RATE).toLocaleString()}</b>${hours===24?" (₱200 discount)":""}. Please message our Facebook page or call 09628637697 to confirm.`;
   e.target.reset();
   $("date").value=date;
   $("hours").value=hours;
